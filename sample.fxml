@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <Tab text="Make them here!">
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+          <HBox layoutX="-24.0" layoutY="7.0" prefHeight="372.0" prefWidth="600.0">
+              <VBox prefHeight="372.0" prefWidth="237.0">
+                  <VBox alignment="CENTER" prefHeight="64.0" prefWidth="237.0">
+                      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="63.0" prefWidth="237.0" text="Make a Friend!">
+                          <font>
+                              <Font size="24.0" />
+                          </font>
+                      </Label>
+                  </VBox>
+                  <HBox prefHeight="310.0" prefWidth="237.0">
+                      <VBox alignment="TOP_CENTER" prefHeight="309.0" prefWidth="130.0" spacing="20.0">
+                          <HBox alignment="BOTTOM_RIGHT" prefHeight="20.0" prefWidth="127.0">
+                              <Label prefHeight="19.0" prefWidth="62.0" text="Properties:">
+                                  <font>
+                                      <Font size="13.0" />
+                                  </font>
+                              </Label>
+                          </HBox>
+                          <VBox alignment="CENTER_RIGHT" prefHeight="144.0" prefWidth="127.0" spacing="20.0">
+                              <Label text="Name:" />
+                              <Label text="Gender:" />
+                              <Label text="Favourite Food:" />
+                              <Label text="Personal Rating:" />
+                          </VBox>
+                      </VBox>
+                      <VBox alignment="TOP_CENTER" prefHeight="304.0" prefWidth="113.0">
+                          <HBox prefHeight="2.0" prefWidth="110.0" />
+                          <HBox prefHeight="67.0" prefWidth="110.0">
+                              <VBox alignment="BOTTOM_CENTER" prefHeight="63.0" prefWidth="110.0" spacing="12.0">
+                                  <TextField fx:id="friendName" promptText="First Last" />
+                              </VBox>
+                          </HBox>
+                          <HBox alignment="BOTTOM_CENTER" prefHeight="26.0" prefWidth="110.0">
+                              <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="19.0" prefWidth="110.0">
+                                  <CheckBox fx:id="genderMale" mnemonicParsing="false" onAction="#maleCheck" text="Male" />
+                                  <CheckBox fx:id="genderFemale" mnemonicParsing="false" onAction="#femaleCheck" text="Female" />
+                              </HBox>
+                          </HBox>
+                          <VBox prefHeight="16.0" prefWidth="110.0">
+                              <CheckBox fx:id="genderOther" mnemonicParsing="false" onAction="#otherCheck" text="Other" />
+                          </VBox>
+                          <HBox alignment="CENTER" prefHeight="37.0" prefWidth="110.0">
+                              <TextField fx:id="friendFood" promptText="Food" />
+                          </HBox>
+                          <Slider fx:id="friendRating" blockIncrement="1.0" majorTickUnit="1.0" max="5.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                      </VBox>
+                  </HBox>
+              </VBox>
+              <VBox prefHeight="372.0" prefWidth="197.0">
+                  <HBox alignment="CENTER" prefHeight="343.0" prefWidth="179.0">
+                      <Button fx:id="addFriendBtn" mnemonicParsing="false" onAction="#addFriend" text="Add Friend" />
+                  </HBox>
+              </VBox>
+          </HBox>
+      </AnchorPane>
+   </Tab>
+    <Tab text="See them here!">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <HBox layoutX="6.0" layoutY="3.0" prefHeight="362.0" prefWidth="590.0">
+                <children>
+                    <VBox prefHeight="362.0" prefWidth="174.0">
+                        <children>
+                            <ListView fx:id="friendsList" onContextMenuRequested="#addFriend" onMouseClicked="#displayFriend" prefHeight="362.0" prefWidth="174.0" />
+                        </children>
+                    </VBox>
+                    <VBox prefHeight="362.0" prefWidth="194.0">
+                        <children>
+                            <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0">
+                                <children>
+                                    <Label text="Friends' Properties">
+                                        <font>
+                                            <Font size="14.0" />
+                                        </font>
+                                    </Label>
+                                </children>
+                            </HBox>
+                            <HBox prefHeight="143.0" prefWidth="194.0">
+                                <children>
+                                    <VBox prefHeight="199.0" prefWidth="97.0">
+                                        <children>
+                                            <HBox prefHeight="100.0" prefWidth="200.0">
+                                                <children>
+                                                    <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0">
+                                                        <children>
+                                                            <Label text="Name:" />
+                                                            <Label text="Gender:" />
+                                                            <Label text="Favourite Food:" />
+                                                            <Label text="Personal Rating" />
+                                                        </children>
+                                                    </VBox>
+                                                </children>
+                                            </HBox>
+                                        </children>
+                                    </VBox>
+                                    <VBox prefHeight="200.0" prefWidth="97.0">
+                                        <children>
+                                            <HBox prefHeight="100.0" prefWidth="200.0">
+                                                <children>
+                                                    <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
+                                                        <children>
+                                                            <Label fx:id="labelName" />
+                                                            <Label fx:id="labelGender" />
+                                                            <Label fx:id="labelFood" />
+                                                            <Label fx:id="labelRating" />
+                                                        </children>
+                                                    </VBox>
+                                                </children>
+                                            </HBox>
+                                        </children>
+                                    </VBox>
+                                </children>
+                            </HBox>
+                     <VBox prefHeight="200.0" prefWidth="100.0">
+                        <children>
+                           <HBox prefHeight="138.0" prefWidth="194.0">
+                              <children>
+                                 <Label text="File Name:" />
+                                 <TextField fx:id="fileName" onMouseClicked="#fileStart" prefHeight="25.0" prefWidth="138.0" />
+                              </children>
+                           </HBox>
+                        </children>
+                     </VBox>
+                        </children>
+                    </VBox>
+               <VBox prefHeight="362.0" prefWidth="221.0">
+                  <children>
+                     <HBox prefHeight="49.0" prefWidth="221.0" />
+                     <VBox alignment="CENTER" prefHeight="183.0" prefWidth="221.0">
+                        <children>
+                           <Button fx:id="friendSave" mnemonicParsing="false" onAction="#SaveFriend" text="Save Friend" />
+                        </children>
+                     </VBox>
+                  </children>
+               </VBox>
+                </children>
+            </HBox>
+        </AnchorPane>
+    </Tab>
+   <Tab text="Save files">
+      <content>
+         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <children>
+               <HBox prefHeight="362.0" prefWidth="590.0">
+                  <children>
+                     <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="362.0" prefWidth="174.0">
+                        <children>
+                           <ListView fx:id="fileList" prefHeight="362.0" prefWidth="174.0" />
+                        </children>
+                     </VBox>
+                     <VBox prefHeight="362.0" prefWidth="218.0">
+                        <children>
+                           <HBox alignment="CENTER" prefHeight="362.0" prefWidth="214.0">
+                              <children>
+                                 <VBox prefHeight="362.0" prefWidth="218.0">
+                                    <children>
+                                       <HBox alignment="CENTER" prefHeight="169.0" prefWidth="218.0">
+                                          <children>
+                                             <VBox prefHeight="169.0" prefWidth="218.0">
+                                                <children>
+                                                   <HBox prefHeight="25.0" prefWidth="218.0" />
+                                                   <HBox alignment="BOTTOM_CENTER" prefHeight="119.0" prefWidth="218.0">
+                                                      <children>
+                                                         <VBox alignment="BOTTOM_CENTER" prefHeight="119.0" prefWidth="119.0" />
+                                                         <VBox alignment="BOTTOM_CENTER" prefHeight="119.0" prefWidth="195.0" />
+                                                      </children>
+                                                   </HBox>
+                                                   <HBox prefHeight="25.0" prefWidth="218.0" />
+                                                </children>
+                                             </VBox>
+                                          </children>
+                                       </HBox>
+                                        <HBox alignment="TOP_CENTER" prefHeight="102.0" prefWidth="218.0" spacing="15.0">
+                                            <VBox prefHeight="0.0" prefWidth="218.0">
+                                                <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="218.0" />
+                                                <HBox alignment="TOP_CENTER" prefHeight="52.0" prefWidth="218.0" />
+                                                <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="218.0" />
+                                            </VBox>
+                                        </HBox>
+                                    </children>
+                                 </VBox>
+                              </children>
+                           </HBox>
+                        </children>
+                     </VBox>
+                     <VBox alignment="CENTER" prefHeight="362.0" prefWidth="199.0" spacing="15.0">
+                        <children>
+                           <Button fx:id="FriendLoad" mnemonicParsing="false" onAction="#LoadFriend" text="Load Friend" />
+                           <Button fx:id="saveLoad" mnemonicParsing="false" onMouseClicked="#LoadSaves" text="Load Saves" />
+                        </children>
+                     </VBox>
+                  </children>
+               </HBox>
+            </children>
+         </AnchorPane>
+      </content>
+   </Tab>
+</TabPane>

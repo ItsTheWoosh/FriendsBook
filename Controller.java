@@ -13,7 +13,6 @@ public class Controller {
     public TextField friendName;
     public CheckBox genderMale;
     public CheckBox genderFemale;
-    public CheckBox genderOther;
     public TextField friendFood;
     public Slider friendRating;
     public ListView<Friend> friendsList = new ListView<>();
@@ -35,7 +34,7 @@ public class Controller {
         if (friendFood.getText().equals("") || friendName.getText().equals("")) {
             Error.friendError();
 
-        } else if (!genderFemale.isSelected() && !genderMale.isSelected() && !genderOther.isSelected()) {
+        } else if (!genderFemale.isSelected() && !genderMale.isSelected()) {
             Error.friendError();
         } else {
             String gender = "";
@@ -43,8 +42,6 @@ public class Controller {
                 gender = "Male";
             } else if (genderFemale.isSelected()) {
                 gender = "Female";
-            } else if (genderOther.isSelected()) {
-                gender = "Other";
             } else {
                 Error.friendError();
             }
@@ -56,37 +53,22 @@ public class Controller {
             friendName.clear();
             if (genderMale.isSelected()) genderMale.fire();
             else if (genderFemale.isSelected()) genderFemale.fire();
-            else if (genderOther.isSelected()) genderOther.fire();
             friendFood.clear();
             friendRating.setValue(0.0);
             stopCheck++;
         }
     }
 
-    public void otherCheck(ActionEvent actionEvent) {
-        do {
-            if (genderOther.isSelected() && genderFemale.isSelected()) {
-                Error.errorAlert();
-            } else if (genderOther.isSelected() && genderMale.isSelected()) {
-                Error.errorAlert();
-            }
-        } while (stopCheck == 1);
-    }
-
     public void femaleCheck(ActionEvent actionEvent) {
         do {
-            if (genderFemale.isSelected() && genderOther.isSelected()) {
-                Error.errorAlert();
-            } else if (genderFemale.isSelected() && genderMale.isSelected()) {
+            if (genderFemale.isSelected() && genderMale.isSelected()) {
                 Error.errorAlert();
             }
         } while (stopCheck == 1);
     }
 
     public void maleCheck(ActionEvent actionEvent) {
-        if (genderMale.isSelected() && genderOther.isSelected()) {
-            Error.errorAlert();
-        } else if (genderMale.isSelected() && genderFemale.isSelected()) {
+        if (genderMale.isSelected() && genderFemale.isSelected()) {
             Error.errorAlert();
         }
     }
@@ -123,8 +105,9 @@ public class Controller {
 
     public void LoadFriend(ActionEvent actionEvent) throws IOException {
         friendsList.getItems().clear();
-        String g = "yeet"/*(fileList.getItems()).toString()*/;
-        ArrayList<Friend> friends = CreateFriend.createAllFriends(g);
+        String temp;
+        temp = fileList.getSelectionModel().getSelectedItem().getName();
+        ArrayList<Friend> friends = CreateFriend.createAllFriends(temp);
         for (Friend f : friends) {
             friendsList.getItems().add(f);
         }
@@ -137,6 +120,7 @@ public class Controller {
     public void LoadSaves(MouseEvent mouseEvent) throws IOException {
         fileList.getItems().clear();
         String s = "Saves";
+        fileList.getItems().clear();
         ArrayList<File> files = CreateFile.createAllFiles(s);
         for (File f : files) {
             fileList.getItems().add(f);

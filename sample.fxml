@@ -48,15 +48,14 @@
                                   <TextField fx:id="friendName" promptText="First Last" />
                               </VBox>
                           </HBox>
+                     <VBox prefHeight="10.0" prefWidth="110.0" />
                           <HBox alignment="BOTTOM_CENTER" prefHeight="26.0" prefWidth="110.0">
                               <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="19.0" prefWidth="110.0">
                                   <CheckBox fx:id="genderMale" mnemonicParsing="false" onAction="#maleCheck" text="Male" />
                                   <CheckBox fx:id="genderFemale" mnemonicParsing="false" onAction="#femaleCheck" text="Female" />
                               </HBox>
                           </HBox>
-                          <VBox prefHeight="16.0" prefWidth="110.0">
-                              <CheckBox fx:id="genderOther" mnemonicParsing="false" onAction="#otherCheck" text="Other" />
-                          </VBox>
+                          <VBox prefHeight="7.0" prefWidth="110.0" />
                           <HBox alignment="CENTER" prefHeight="37.0" prefWidth="110.0">
                               <TextField fx:id="friendFood" promptText="Food" />
                           </HBox>
